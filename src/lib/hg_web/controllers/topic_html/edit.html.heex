@@ -1,0 +1,8 @@
+<.header>
+  Edit Topic <%= @topic.id %>
+  <:subtitle>Use this form to manage topic records in your database.</:subtitle>
+</.header>
+
+<.topic_form changeset={@changeset} action={~p"/consultei/topics/#{@topic}"} />
+
+<.back navigate={~p"/consultei/topics"}>Back to topics</.back>

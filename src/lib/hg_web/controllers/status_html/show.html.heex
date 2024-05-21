@@ -1,0 +1,15 @@
+<.header>
+  Status <%= @status.id %>
+  <:subtitle>This is a status record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/consultei/statuses/#{@status}/edit"}>
+      <.button>Edit status</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Name"><%= @status.name %></:item>
+</.list>
+
+<.back navigate={~p"/consultei/statuses"}>Back to statuses</.back>

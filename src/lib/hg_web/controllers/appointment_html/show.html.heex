@@ -1,0 +1,18 @@
+<.header>
+  Appointment <%= @appointment.id %>
+  <:subtitle>This is a appointment record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/consultei/appointments/#{@appointment}/edit"}>
+      <.button>Edit appointment</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Start time"><%= @appointment.start_time %></:item>
+  <:item title="End time"><%= @appointment.end_time %></:item>
+  <:item title="Description"><%= @appointment.description %></:item>
+  <:item title="Status"><%= @appointment.status %></:item>
+</.list>
+
+<.back navigate={~p"/consultei/appointments"}>Back to appointments</.back>

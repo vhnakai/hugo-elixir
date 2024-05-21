@@ -1,0 +1,15 @@
+<.header>
+  Difficulty <%= @difficulty.id %>
+  <:subtitle>This is a difficulty record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/consultei/difficulties/#{@difficulty}/edit"}>
+      <.button>Edit difficulty</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Level"><%= @difficulty.level %></:item>
+</.list>
+
+<.back navigate={~p"/consultei/difficulties"}>Back to difficulties</.back>

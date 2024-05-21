@@ -1,0 +1,23 @@
+<.header>
+  Listing Difficulties
+  <:actions>
+    <.link href={~p"/consultei/difficulties/new"}>
+      <.button>New Difficulty</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="difficulties" rows={@difficulties} row_click={&JS.navigate(~p"/consultei/difficulties/#{&1}")}>
+  <:col :let={difficulty} label="Level"><%= difficulty.level %></:col>
+  <:action :let={difficulty}>
+    <div class="sr-only">
+      <.link navigate={~p"/consultei/difficulties/#{difficulty}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/consultei/difficulties/#{difficulty}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={difficulty}>
+    <.link href={~p"/consultei/difficulties/#{difficulty}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

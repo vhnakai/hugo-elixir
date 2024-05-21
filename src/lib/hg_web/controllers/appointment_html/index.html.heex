@@ -1,0 +1,25 @@
+<.header>
+  Listing Appointments
+  <:actions>
+    <.link href={~p"/consultei/appointments/new"}>
+      <.button>New Appointment</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="appointments" rows={@appointments} row_click={&JS.navigate(~p"/consultei/appointments/#{&1}")}>
+  <:col :let={appointment} label="Start time"><%= appointment.start_time %></:col>
+  <:col :let={appointment} label="End time"><%= appointment.end_time %></:col>
+  <:col :let={appointment} label="Description"><%= appointment.description %></:col>
+  <:action :let={appointment}>
+    <div class="sr-only">
+      <.link navigate={~p"/consultei/appointments/#{appointment}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/consultei/appointments/#{appointment}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={appointment}>
+    <.link href={~p"/consultei/appointments/#{appointment}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>
