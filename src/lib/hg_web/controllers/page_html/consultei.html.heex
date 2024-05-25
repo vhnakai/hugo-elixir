@@ -1,0 +1,74 @@
+<div class="mx-auto max-w-screen-2xl px-10">
+
+  <.header>
+    <div class="text-4xl pt-10 pb-1">
+      <span class="h-10 w-10 origin-left my-2 mx-4 fa-book-medical"/> Consultei
+    </div>
+  </.header>
+
+  <div class="mx-auto py-5">
+      <.bento_grid class="grid-rows-3 grid-cols-3 md:grid-cols-3">
+
+          <div class="row-span-1 col-span-4 row-start-1 row-end-1 col-start-1 col-end-4 group relative flex flex-col justify-between overflow-hidden rounded-xl bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:bg-zinc-900 dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]" >
+            <div class="pointer-events-none z-10 flex flex-col gap-1 p-6">
+              <h3 class="text-xl font-semibold text-neutral-700 dark:text-neutral-300">
+              <span class="h-6 w-6 origin-left my-o mx-1 fa-pen-nib"/>
+                Appointments
+              </h3>
+                <p class="max-w-lg text-neutral-400">listagem de agendamentos</p>
+            </div>
+            <div class=" flex w-full  transform-gpu flex-row items-center p-4 dark:text-neutral-200">
+              <.link href={~p"/consultei/appointments"}>
+                <.button class="dark:shadow-none">Acessar</.button>
+              </.link>
+              </div>
+          </div>
+
+        <!-- Colocar informações do complementares -->
+        <.bento_card
+          name="Topics"
+          description="cadastro de topicos"
+          icon="fa-eye"
+          row_start={2}
+          row_end={3}
+          col_start={1}
+          col_end={2}
+          >
+          <.link href={~p"/consultei/topics"}>
+            <.button class="dark:shadow-none">Acessar</.button>
+          </.link>
+        </.bento_card>
+
+        <.bento_card
+          name="Difficulties"
+          description="cadastro de dificuldades"
+          icon="fa-business-time"
+          row_start={2}
+          row_end={3}
+          col_start={2}
+          col_end={3}
+          >
+            <.link href={~p"/consultei/difficulties"}>
+              <.button class="dark:shadow-none">Acessar</.button>
+            </.link>
+
+        </.bento_card>
+
+        <.bento_card
+          name="Statuses"
+          description="cadastro de status"
+          icon="fa-chart-gantt"
+          row_start={2}
+          row_end={3}
+          col_start={3}
+          col_end={4}
+          >
+          <.link href={~p"/consultei/statuses"}>
+            <.button class="dark:shadow-none">Acessar</.button>
+          </.link>
+        </.bento_card>
+
+      </.bento_grid>
+  </div>
+
+</div>

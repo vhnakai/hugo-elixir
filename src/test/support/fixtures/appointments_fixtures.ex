@@ -91,4 +91,20 @@ defmodule Hg.AppointmentsFixtures do
 
     appointment
   end
+
+  @doc """
+  Generate a appointment.
+  """
+  def appointment_fixture(attrs \\ %{}) do
+    {:ok, appointment} =
+      attrs
+      |> Enum.into(%{
+        description: "some description",
+        end_time: ~N[2024-05-20 16:33:00],
+        start_time: ~N[2024-05-20 16:33:00]
+      })
+      |> Hg.Appointments.create_appointment()
+
+    appointment
+  end
 end

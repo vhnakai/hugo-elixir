@@ -1,0 +1,3 @@
+asdf local erlang 26.2.5
+asdf local elixir 1.16.2
+asdf local nodejs 22.2.0

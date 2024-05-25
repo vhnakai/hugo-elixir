@@ -3,6 +3,6 @@
   <:subtitle>Use this form to manage appointment records in your database.</:subtitle>
 </.header>
 
-<.appointment_form changeset={@changeset} action={~p"/consultei/appointments/#{@appointment}"} />
+<.appointment_form changeset={@changeset} action={~p"/consultei/appointments/#{@appointment}"} topics={@topics} difficulties={@difficulties} statuses={@statuses} />
 
 <.back navigate={~p"/consultei/appointments"}>Back to appointments</.back>

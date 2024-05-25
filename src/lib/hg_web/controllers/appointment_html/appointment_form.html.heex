@@ -5,6 +5,10 @@
   <.input field={f[:start_time]} type="datetime-local" label="Start time" />
   <.input field={f[:end_time]} type="datetime-local" label="End time" />
   <.input field={f[:description]} type="text" label="Description" />
+  <.input field={f[:topic_id]} type="select" label="Topics" options={Enum.map(@topics, &{&1.name, &1.id})} />
+  <.input field={f[:difficulty_id]} type="select" label="Difficulty" options={Enum.map(@difficulties, &{&1.name, &1.id})} />
+  <.input field={f[:status_id]} type="select" label="Status" options={Enum.map(@statuses, &{&1.name, &1.id})} />
+
   <:actions>
     <.button>Save Appointment</.button>
   </:actions>

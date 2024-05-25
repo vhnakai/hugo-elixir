@@ -37,6 +37,7 @@ defmodule HgWeb.Components.BentoGrid do
 
   slot(:background, required: false)
   slot(:inner_block, required: true)
+  slot(:image_icon, required: false)
 
   def bento_card(assigns) do
     ~H"""
@@ -50,6 +51,7 @@ defmodule HgWeb.Components.BentoGrid do
           "h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75 dark:text-neutral-100",
           @icon
         ]} />
+        <%= render_slot(@image_icon) %>
         <h3 class="text-xl font-semibold text-neutral-700 dark:text-neutral-300"><%= @name %></h3>
         <p class="max-w-lg text-neutral-400"><%= @description %></p>
       </div>

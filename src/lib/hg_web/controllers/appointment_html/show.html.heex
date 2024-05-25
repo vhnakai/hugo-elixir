@@ -12,7 +12,7 @@
   <:item title="Start time"><%= @appointment.start_time %></:item>
   <:item title="End time"><%= @appointment.end_time %></:item>
   <:item title="Description"><%= @appointment.description %></:item>
-  <:item title="Status"><%= @appointment.status %></:item>
+  <:item title="Status"><%= @appointment.status.name %></:item>
 </.list>
 
 <.back navigate={~p"/consultei/appointments"}>Back to appointments</.back>

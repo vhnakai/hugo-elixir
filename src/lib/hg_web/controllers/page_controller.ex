@@ -6,4 +6,8 @@ defmodule HgWeb.PageController do
     # so skip the default app layout.
     render(conn, :home, layout: false)
   end
+
+  def consultei(conn, _params) do
+    render(conn, :consultei, layout: false)
+  end
 end

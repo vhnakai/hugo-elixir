@@ -3,15 +3,34 @@ defmodule HgWeb.AppointmentController do
 
   alias Hg.Appointments
   alias Hg.Appointments.Appointment
+  alias Hg.Repo
 
   def index(conn, _params) do
     appointments = Appointments.list_appointments()
-    render(conn, :index, appointments: appointments)
+    topics = Appointments.list_topics()
+    difficulties = Appointments.list_difficulties()
+    statuses = Appointments.list_statuses()
+
+    render(conn, :index,
+      appointments: appointments,
+      topics: topics,
+      difficulties: difficulties,
+      statuses: statuses
+    )
   end
 
   def new(conn, _params) do
     changeset = Appointments.change_appointment(%Appointment{})
-    render(conn, :new, changeset: changeset)
+    topics = Appointments.list_topics()
+    difficulties = Appointments.list_difficulties()
+    statuses = Appointments.list_statuses()
+
+    render(conn, :new,
+      changeset: changeset,
+      topics: topics,
+      difficulties: difficulties,
+      statuses: statuses
+    )
   end
 
   def create(conn, %{"appointment" => appointment_params}) do
@@ -22,19 +41,40 @@ defmodule HgWeb.AppointmentController do
         |> redirect(to: ~p"/consultei/appointments/#{appointment}")
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, :new, changeset: changeset)
+        topics = Appointments.list_topics()
+        difficulties = Appointments.list_difficulties()
+        statuses = Appointments.list_statuses()
+        render(conn, :new,
+          changeset: changeset,
+          topics: topics,
+          difficulties: difficulties,
+          statuses: statuses
+        )
     end
   end
 
   def show(conn, %{"id" => id}) do
     appointment = Appointments.get_appointment!(id)
-    render(conn, :show, appointment: appointment)
+    |> Repo.preload(:topic)
+    |> Repo.preload(:difficulties)
+    |> Repo.preload(:status)
+    render(conn, :show, appointment: appointment )
   end
 
   def edit(conn, %{"id" => id}) do
     appointment = Appointments.get_appointment!(id)
     changeset = Appointments.change_appointment(appointment)
-    render(conn, :edit, appointment: appointment, changeset: changeset)
+    topics = Appointments.list_topics()
+    difficulties = Appointments.list_difficulties()
+    statuses = Appointments.list_statuses()
+
+    render(conn, :edit,
+      appointment: appointment,
+      changeset: changeset,
+      topics: topics,
+      difficulties: difficulties,
+      statuses: statuses
+    )
   end
 
   def update(conn, %{"id" => id, "appointment" => appointment_params}) do
@@ -47,7 +87,16 @@ defmodule HgWeb.AppointmentController do
         |> redirect(to: ~p"/consultei/appointments/#{appointment}")
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, :edit, appointment: appointment, changeset: changeset)
+        topics = Appointments.list_topics()
+        difficulties = Appointments.list_difficulties()
+        statuses = Appointments.list_statuses()
+        render(conn, :edit,
+          appointment: appointment,
+          changeset: changeset,
+          topics: topics,
+          difficulties: difficulties,
+          statuses: statuses
+        )
     end
   end
 
