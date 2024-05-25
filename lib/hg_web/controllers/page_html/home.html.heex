@@ -22,7 +22,7 @@
   </div>
   <div class="flex justify-around">
   <div class="mx-auto max-w-3xl pb-5 lg:mx-0  ">
-      <.bento_grid class="grid-rows-3 grid-cols-4">
+      <.bento_grid class="grid-rows-3 grid-cols-4  md:grid-cols-4">
         <div class="row-span-1 col-span-4 row-start-1 row-end-2 col-start-1 col-end-5 group relative flex flex-col justify-between overflow-hidden rounded-xl bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:bg-zinc-900 dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]" >
           <div class="pointer-events-none z-10 flex flex-col gap-1 p-6">
             <div class="z-10 flex flex-row gap-3 m-3">
@@ -63,16 +63,29 @@
             <a href="https://discord.gg/qzuHbA4P">Let's chat?</a>
           </p>
         </.bento_card>
+        <.bento_card
+          name="Projetos em mente"
+          description="projetos embriões para estudo"
+          icon="fa-github-brand"
+          row_start={3}
+          row_end={4}
+          col_start={1}
+          col_end={4}>
+          <.link href={~p"/consultei"}>
+          <span class="h-6 w-6 origin-left my-2 mx-4 fa-book-medical"/> Consultei
+          </.link> ,
+          <span class="h-6 w-6 origin-left my-2 mx-4 fa-book-open-reader"/> ToLendo
+        </.bento_card>
 
-        <!-- Colocar informações do personagem -->
         <.bento_card
           name="Hugo"
           description="desenhado por @Akayton"
           icon=""
           row_start={3}
-          row_end={3}
-          col_start={1}
-          col_end={2}>
+          row_end={4}
+          col_start={4}
+          col_end={5}
+          >
           <:image_icon>
             <div class="flex align-middle justify-center">
               <img class="h-24 max-w-xl object-scale-down shadow-none transition-shadow duration-300 ease-in-out" src="/images/hugo-face.png" alt="Zoom fo Hugo's Head" />
@@ -81,21 +94,9 @@
           <a href="https://x.com/AkaytonV"><span class="h-6 w-6 origin-left  my-2 mx-4 fa-link"/>@Akayton</a>
 
         </.bento_card>
-
-        <.bento_card
-          name="Projetos em mente"
-          description="projetos embriões para estudo"
-          icon="fa-github-brand"
-          row_start={3}
-          row_end={3}
-          col_start={2}
-          col_end={5}>
-          <.link href={~p"/consultei"}>
-          <span class="h-6 w-6 origin-left my-2 mx-4 fa-book-medical"/> Consultei
-          </.link> ,
-          <span class="h-6 w-6 origin-left my-2 mx-4 fa-book-open-reader"/> ToLendo
-        </.bento_card>
       </.bento_grid>
+
+
   </div>
   <div class="shrink-0 align-middle justify-center hidden lg:inline-flex">
       <img class="h-auto max-w-xl object-scale-down shadow-none transition-shadow duration-300 ease-in-out" src="/images/Referencia.png" alt="Modern building architecture">
